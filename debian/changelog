@@ -3,6 +3,7 @@ mopidy-soundcloud (2.0.0-1) unstable; urgency=medium
   * New upstream release.
   * Update watch file.
   * Update copyright years.
+  * Bump Standards-Version to 3.9.6.
 
  -- Stein Magnus Jodal <stein.magnus@jodal.no>  Fri, 27 Mar 2015 13:45:01 +0100
 
