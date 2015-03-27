@@ -2,19 +2,19 @@
 Mopidy-SoundCloud
 *****************
 
-.. image:: https://pypip.in/v/Mopidy-SoundCloud/badge.png
+.. image:: https://img.shields.io/pypi/v/Mopidy-SoundCloud.svg?style=flat
     :target: https://pypi.python.org/pypi/Mopidy-SoundCloud/
     :alt: Latest PyPI version
 
-.. image:: https://pypip.in/d/Mopidy-SoundCloud/badge.png
+.. image:: https://img.shields.io/pypi/dm/Mopidy-SoundCloud.svg?style=flat
     :target: https://pypi.python.org/pypi/Mopidy-SoundCloud/
     :alt: Number of PyPI downloads
 
-.. image:: https://travis-ci.org/mopidy/mopidy-soundcloud.png?branch=master
+.. image:: https://img.shields.io/travis/mopidy/mopidy-soundcloud/master.svg?style=flat
     :target: https://travis-ci.org/mopidy/mopidy-soundcloud
     :alt: Travis CI build status
 
-.. image:: https://coveralls.io/repos/mopidy/mopidy-soundcloud/badge.png?branch=master
+.. image:: https://img.shields.io/coveralls/mopidy/mopidy-soundcloud/master.svg?style=flat
    :target: https://coveralls.io/r/mopidy/mopidy-soundcloud?branch=master
    :alt: Test coverage
 
@@ -25,12 +25,25 @@ Mopidy-SoundCloud
 Installation
 ============
 
-Install by running::
+Debian/Ubuntu/Raspbian: Install the ``mopidy-soundcloud`` package from
+`apt.mopidy.com <http://apt.mopidy.com/>`_::
+
+    sudo apt-get install mopidy-soundcloud
+
+Arch Linux: Install the ``mopidy-soundcloud`` package from
+`AUR <https://aur.archlinux.org/packages/mopidy-soundcloud/>`_::
+
+    sudo yaourt -S mopidy-soundcloud
+
+OS X: Install the ``mopidy-soundcloud`` package from the
+`mopidy/mopidy <https://github.com/mopidy/homebrew-mopidy>`_ Homebrew tap::
+
+    brew install mopidy-soundcloud
+
+Else: Install the dependencies listed above yourself, and then install the
+package from PyPI::
 
     pip install Mopidy-SoundCloud
-
-Or, if available, install the Debian/Ubuntu package from `apt.mopidy.com
-<http://apt.mopidy.com/>`_.
 
 If you're having trouble with audio playback from SoundCloud, make sure you
 have the "ugly" plugin set from GStreamer installed for MP3 support. The
@@ -53,6 +66,7 @@ Configuration
     auth_token = 1-1111-1111111
     explore_songs = 25
 
+
 Project resources
 =================
 
@@ -64,6 +78,15 @@ Project resources
 
 Changelog
 =========
+
+v2.0.0 (2015-03-25)
+-------------------
+
+- Require Mopidy >= 1.0.
+
+- Update to work with new playback API in Mopidy 1.0.
+
+- Update to work with new backend search API in Mopidy 1.0.
 
 v1.2.5 (2014-06-24)
 -------------------

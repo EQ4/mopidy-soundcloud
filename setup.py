@@ -2,13 +2,13 @@ from __future__ import unicode_literals
 
 import re
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 
 def get_version(filename):
-    content = open(filename).read()
-    metadata = dict(re.findall("__([a-z]+)__ = '([^']+)'", content))
-    return metadata['version']
+    with open(filename) as fh:
+        metadata = dict(re.findall("__([a-z]+)__ = '([^']+)'", fh.read()))
+        return metadata['version']
 
 
 setup(
@@ -25,12 +25,12 @@ setup(
     include_package_data=True,
     install_requires=[
         'setuptools',
-        'Mopidy >= 0.18',
+        'Mopidy >= 1.0',
         'Pykka >= 1.1',
         'requests >= 2.0.0',
     ],
     entry_points={
-        b'mopidy.ext': [
+        'mopidy.ext': [
             'soundcloud = mopidy_soundcloud:SoundCloudExtension',
         ],
     },

@@ -2,11 +2,11 @@ from __future__ import unicode_literals
 
 import os
 
-from mopidy import ext, config
+from mopidy import config, ext
 from mopidy.exceptions import ExtensionError
 
 
-__version__ = '1.2.5'
+__version__ = '2.0.0'
 __url__ = 'https://github.com/mopidy/mopidy-soundcloud'
 
 
@@ -28,13 +28,13 @@ class SoundCloudExtension(ext.Extension):
         schema['explore_pages'] = config.Deprecated()
         return schema
 
-    def validate_config(self, config):
+    def validate_config(self, config):  # no_coverage
         if not config.getboolean('soundcloud', 'enabled'):
             return
         if not config.get('soundcloud', 'auth_token'):
             raise ExtensionError(
                 'In order to use SoundCloud extension you must provide an '
-                'auth token. For more information referrer to '
+                'auth token. For more information refer to '
                 'https://github.com/mopidy/mopidy-soundcloud/')
 
     def setup(self, registry):

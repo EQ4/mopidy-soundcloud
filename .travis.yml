@@ -11,8 +11,8 @@ install:
   - "wget -O - http://apt.mopidy.com/mopidy.gpg | sudo apt-key add -"
   - "sudo wget -O /etc/apt/sources.list.d/mopidy.list http://apt.mopidy.com/mopidy.list"
   - "sudo apt-get update || true"
-  - "sudo apt-get install mopidy-soundcloud"
-  - "pip install tox"
+  - "sudo apt-get install mopidy"
+  - "sudo pip install tox"
 
 script:
   - "tox -e $TOX_ENV"

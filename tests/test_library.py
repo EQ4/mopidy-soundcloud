@@ -3,12 +3,12 @@ from __future__ import unicode_literals
 
 import unittest
 
-from mopidy.models import Ref
 import pykka
 
-from mopidy_soundcloud import actor, SoundCloudExtension
+from mopidy_soundcloud import SoundCloudExtension, actor
+from mopidy_soundcloud.library import (
+    SoundCloudLibraryProvider, new_folder, simplify_search_query)
 from mopidy_soundcloud.soundcloud import safe_url
-from mopidy_soundcloud.library import SoundCloudLibraryProvider, new_folder
 
 
 class ApiTest(unittest.TestCase):
@@ -26,10 +26,43 @@ class ApiTest(unittest.TestCase):
         pykka.ActorRegistry.stop_all()
 
     def test_add_folder(self):
+        try:
+            from mopidy.models import Ref
+        except ImportError as e:
+            self.skipTest(e.message)
         self.assertEquals(
             new_folder('Test', ['test']),
             Ref(name='Test', type='directory',
                 uri='soundcloud:directory:test')
+        )
+
+    def test_mpc_search(self):
+        self.assertEquals(
+            simplify_search_query({u'any': [u'explosions in the sky']}),
+            'explosions in the sky'
+        )
+
+    def test_moped_search(self):
+        self.assertEquals(
+            simplify_search_query(
+                {
+                    u'track_name': [u'explosions in the sky'],
+                    u'any': [u'explosions in the sky']
+                }
+            ),
+            'explosions in the sky explosions in the sky'
+        )
+
+    def test_simple_search(self):
+        self.assertEquals(
+            simplify_search_query('explosions in the sky'),
+            'explosions in the sky'
+        )
+
+    def test_aria_search(self):
+        self.assertEquals(
+            simplify_search_query(['explosions', 'in the sky']),
+            'explosions in the sky'
         )
 
     def test_only_resolves_soundcloud_uris(self):
@@ -45,6 +78,10 @@ class ApiTest(unittest.TestCase):
             'DP+Hau+iNDiE+DANCE+%7C+No+2014')
 
     def test_default_folders(self):
+        try:
+            from mopidy.models import Ref
+        except ImportError as e:
+            self.skipTest(e.message)
         self.assertEquals(
             self.library.browse('soundcloud:directory'),
             [
