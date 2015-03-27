@@ -4,11 +4,11 @@ Upstream-Contact: Janez Troha <janez.troha@gmail.com>
 Source: https://github.com/mopidy/mopidy-soundcloud
 
 Files: *
-Copyright: 2013-2014 Janez Troha
+Copyright: 2013-2015 Janez Troha
 License: Expat
 
 Files: debian/*
-Copyright: 2013-2014 Stein Magnus Jodal <stein.magnus@jodal.no>
+Copyright: 2013-2015 Stein Magnus Jodal <stein.magnus@jodal.no>
 License: Expat
 
 License: Expat
