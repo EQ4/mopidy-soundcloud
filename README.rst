@@ -72,12 +72,16 @@ Project resources
 
 - `Source code <https://github.com/mopidy/mopidy-soundcloud>`_
 - `Issue tracker <https://github.com/mopidy/mopidy-soundcloud/issues>`_
-- `Download development snapshot
-  <https://github.com/mopidy/mopidy-soundcloud/archive/master.tar.gz#egg=Mopidy-SoundCloud-dev>`_
 
 
 Changelog
 =========
+
+v2.0.1 (2015-10-06)
+-------------------
+
+- Fix Unicode escape sequences in SoundCloud search queries by encoding as
+  UTF-8. (Fixes #42, PR #55)
 
 v2.0.0 (2015-03-25)
 -------------------
